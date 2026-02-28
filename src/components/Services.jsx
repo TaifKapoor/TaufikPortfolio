@@ -14,7 +14,7 @@ const Services = () => {
       icon: Server,
       title: 'API Development',
       desc: 'RESTful and GraphQL APIs with authentication and security.',
-      features: ['REST API', 'GraphQL', 'JWT/OAuth']
+      features: ['REST API']
     },
     {
       icon: Smartphone,
@@ -26,7 +26,7 @@ const Services = () => {
       icon: Palette,
       title: 'UI/UX Design',
       desc: 'Beautiful interfaces with great user experience.',
-      features: ['Figma Design', 'Prototyping', 'Animation']
+      features: [ 'Animation']
     }
   ]
 

@@ -76,7 +76,7 @@ const About = () => {
                 <div className="text-sm text-gray-400 font-semibold">Technologies</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-black bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent mb-2">2+</div>
+                <div className="text-4xl font-black bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent mb-2">0</div>
                 <div className="text-sm text-gray-400 font-semibold">Years Experience</div>
               </div>
             </div>
