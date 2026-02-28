@@ -1,67 +1,63 @@
+// components/Skills.jsx
 import React from 'react'
-import { Code, Zap, Award } from 'lucide-react'
 
 const Skills = () => {
-
-  const skills = {
-    teachical : ['React', 'Next.js', 'JavaScript', 'HTML / CSS', 'Node.js', 'Express.js', 'Mongodb', 'Tailwind CSS', 'Python', 'TypeScript'],
-    graphic: ['Photoshop', 'Illustrator', 'CorelDraw'],
-    soft: ['Problem Solving', 'Team Collaboration']
-  }
+  const categories = [
+    {
+      title: 'Frontend',
+      skills: ['React.js', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Redux', 'Framer Motion'],
+      color: 'blue'
+    },
+    {
+      title: 'Backend',
+      skills: ['Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'REST API', 'GraphQL', 'JWT Auth'],
+      color: 'cyan'
+    },
+    {
+      title: 'Tools & DevOps',
+      skills: ['Git', 'GitHub', 'Docker', 'AWS', 'Vercel', 'Postman', 'Figma'],
+      color: 'purple'
+    }
+  ]
 
   return (
-    <section className='py-20 px-4 relative' id="skills">
+    <section className='py-24 px-4 relative' id="skills">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-black mb-4 text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-          🛠 Skills & Expertise
-        </h2>
-        <p className="text-center text-gray-400 mb-16">Teachologies I work with</p>
+        <div className="text-center mb-16">
+          <h2 className="text-sm font-bold text-blue-400 tracking-widest uppercase mb-4">My Skills</h2>
+          <h3 className="text-4xl md:text-5xl font-black text-white">
+            Tech <span className="text-cyan-400">Stack</span>
+          </h3>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-gradient-to-br from-blue-500/15 to-blue-600/15 border border-blue-500/30 rounded-xl p-8 hover:border-blue-400 transition">
-           <div className="flex items-center gap-3 mb-6">
-             <Code size={32} className='text-blue-400'/>
-             <h3 className="text-2xl font-bold text-blue-400">Technical</h3>
-           </div>
-
-           <div className="space-y-3">
-             {skills.teachical.map((skill, idx)=>  (
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full"></div>
-                <span className="text-gray-300 font-medium">{skill}</span>
+        <div className="grid md:grid-cols-3 gap-8">
+          {categories.map((cat, idx) => (
+            <div key={idx} className="group relative">
+              <div className={`absolute inset-0 bg-gradient-to-r from-${cat.color}-500/20 to-${cat.color}-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition`} />
+              <div className="relative bg-slate-900/80 border border-slate-800 rounded-2xl p-8 hover:border-slate-600 transition">
+                <h4 className={`text-2xl font-bold text-${cat.color}-400 mb-6`}>{cat.title}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {cat.skills.map((skill, i) => (
+                    <span key={i} className="px-4 py-2 bg-slate-800 rounded-lg text-slate-300 text-sm font-medium hover:bg-slate-700 transition">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-             ))}
-           </div>
-          </div>
-          <div className="bg-gradient-to-br from-cyan-500/15 to-cyan-600/15 border border-cyan-500/30 rounded-xl p-8 hover:border-blue-400 transition">
-           <div className="flex items-center gap-3 mb-6">
-             <Zap size={32} className='text-cyan-400'/>
-             <h3 className="text-2xl font-bold text-cyan-400">Design</h3>
-           </div>
+            </div>
+          ))}
+        </div>
 
-           <div className="space-y-3">
-             {skills.graphic.map((skill, idx)=>  (
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full"></div>
-                <span className="text-gray-300 font-medium">{skill}</span>
-              </div>
-             ))}
-           </div>
-          </div>
-          <div className="bg-gradient-to-br from-purple-500/15 to-purple-600/15 border border-blue-500/30 rounded-xl p-8 hover:border-blue-400 transition">
-           <div className="flex items-center gap-3 mb-6">
-             <Award size={32} className='text-purple-400'/>
-             <h3 className="text-2xl font-bold text-purple-400">Soft Skills</h3>
-           </div>
-
-           <div className="space-y-3">
-             {skills.soft.map((skill, idx)=>  (
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full"></div>
-                <span className="text-gray-300 font-medium">{skill}</span>
-              </div>
-             ))}
-           </div>
+        {/* Marquee */}
+        <div className="mt-16 overflow-hidden">
+          <div className="flex gap-8 animate-marquee whitespace-nowrap">
+            {[...Array(2)].map((_, i) => (
+              <React.Fragment key={i}>
+                {['React', 'Next.js', 'Node.js', 'MongoDB', 'TypeScript', 'Tailwind', 'Express', 'PostgreSQL'].map((tech, j) => (
+                  <span key={j} className="text-4xl font-black text-slate-800 mx-4">{tech}</span>
+                ))}
+              </React.Fragment>
+            ))}
           </div>
         </div>
       </div>
